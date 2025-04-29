@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
+  base: './' ,
   plugins: [react()],
   define: {
     __DEFINES__: {}, // ✅ Fix "__DEFINES__ is not defined" error
