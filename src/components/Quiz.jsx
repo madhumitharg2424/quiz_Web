@@ -388,12 +388,12 @@ const Quiz = () => {
         ) : (
           <>
             <h2 className="text-xl font-semibold text-[#1E3A8A] mb-6">{questions[currentQuestionIndex].question}</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 md:grid-cols-2">
               {questions[currentQuestionIndex].options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleAnswer(option)}
-                  className="bg-blue-100 hover:bg-blue-300 text-[#1E3A8A] hover:text-white px-4 py-2 rounded-xl transition duration-300 font-medium shadow-sm"
+                  className="bg-blue-100 hover:bg-blue-300 text-[#1E3A8A] hover:text-white px-4 py-2 rounded-xl transition duration-300 font-medium shadow-sm w-full"
                 >
                   {option}
                 </button>

@@ -66,7 +66,10 @@ const Dashboard = () => {
         >
           {companies.map((company, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-full bg-cover bg-center rounded-xl shadow-lg" style={{ backgroundImage: `url(${company.img})` }}>
+              <div
+                className="relative w-full h-full bg-cover bg-center rounded-xl shadow-lg"
+                style={{ backgroundImage: `url(${company.img})` }}
+              >
                 <div className="absolute inset-0 bg-blue-900 bg-opacity-50 flex flex-col justify-center items-center text-center p-4 rounded-xl">
                   <h2 className="text-2xl font-bold text-white">{company.name}</h2>
                   <p className="text-md text-blue-100">{company.location}</p>
@@ -80,12 +83,12 @@ const Dashboard = () => {
 
       {/* Motivational Quotes */}
       <h2 className="text-3xl font-semibold mt-12 mb-6 text-center text-[#1E3A8A]">Motivational Quotes</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {quotes.map((quote, index) => (
           <motion.div
             key={index}
             className={`bg-blue-100 p-6 rounded-lg shadow-md flex flex-col justify-center items-center text-[#1E3A8A] ${
-              index % 2 === 0 ? "md:ml-auto" : "md:mr-auto"
+              index % 2 === 0 ? "sm:ml-auto" : "sm:mr-auto"
             } max-w-md`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +104,12 @@ const Dashboard = () => {
       <h2 className="text-3xl font-semibold mt-12 mb-6 text-center text-[#1E3A8A]">Case Studies</h2>
 
       {/* Elon Musk Case Study */}
-      <motion.div className="bg-blue-50 rounded-xl shadow-lg grid md:grid-cols-2 gap-4 p-6 max-w-5xl mx-auto mb-10" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}>
+      <motion.div
+        className="bg-blue-50 rounded-xl shadow-lg grid sm:grid-cols-1 md:grid-cols-2 gap-4 p-6 max-w-5xl mx-auto mb-10"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="order-2 md:order-1">
           <img src="/assets/case-study.jpg" alt="Elon Musk" className="w-full h-64 object-cover rounded-lg" />
         </div>
@@ -121,7 +129,12 @@ const Dashboard = () => {
       </motion.div>
 
       {/* Sundar Pichai Case Study */}
-      <motion.div className="bg-blue-50 rounded-xl shadow-lg grid md:grid-cols-2 gap-4 p-6 max-w-5xl mx-auto" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}>
+      <motion.div
+        className="bg-blue-50 rounded-xl shadow-lg grid sm:grid-cols-1 md:grid-cols-2 gap-4 p-6 max-w-5xl mx-auto"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <div>
           <h3 className="text-xl font-bold">Sundar Pichai – CEO of Google and Alphabet</h3>
           <p className="mt-2 font-semibold">Why him?</p>

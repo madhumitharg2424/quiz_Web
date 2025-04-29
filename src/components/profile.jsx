@@ -17,24 +17,13 @@ const Profile = () => {
         ...prev,
         name: storedUser.name || "",
         email: storedUser.email || "",
-        photoURL: storedUser.photoURL || "/assets/default-profile.png",
+        photoURL: storedUser.photoURL || `https://www.gravatar.com/avatar/${md5(storedUser.email)}?d=robohash`, // Use Gravatar if no photo
       }));
     }
   }, []);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setUser({ ...user, photoURL: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
   };
 
   return (
@@ -54,19 +43,6 @@ const Profile = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
         />
-
-        {/* Upload & Take Photo */}
-        <div className="flex justify-center space-x-4 mt-4">
-          <label className="cursor-pointer bg-blue-200 hover:bg-blue-300 text-[#1E3A8A] font-semibold py-2 px-4 rounded-lg transition">
-            Upload Photo
-            <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
-          </label>
-
-          <label className="cursor-pointer bg-pink-200 hover:bg-pink-300 text-[#1E3A8A] font-semibold py-2 px-4 rounded-lg transition">
-            Take Photo
-            <input type="file" accept="image/*" capture="user" className="hidden" onChange={handleImageChange} />
-          </label>
-        </div>
 
         {/* Name & Email */}
         <h2 className="text-2xl font-bold mt-4 text-[#1E3A8A]">{user.name || "Your Name"}</h2>
