@@ -106,12 +106,12 @@ const proQuestions = [
 
 const ProSolutions = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 text-[#1E3A8A] flex justify-center items-center p-8">
-      <div className="max-w-5xl w-full p-6 bg-white shadow-2xl rounded-lg border border-blue-200">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 text-[#1E3A8A] flex justify-center items-center p-6 sm:p-8">
+      <div className="max-w-5xl w-full p-6 sm:p-8 bg-white shadow-2xl rounded-lg border border-blue-200">
 
         {/* ✅ Title */}
         <motion.h2
-          className="text-3xl font-bold text-center text-[#1E3A8A] mb-6"
+          className="text-2xl sm:text-3xl font-bold text-center text-[#1E3A8A] mb-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -121,7 +121,7 @@ const ProSolutions = () => {
 
         {/* ✅ Intro */}
         <motion.p
-          className="text-lg text-center mb-4"
+          className="text-base sm:text-lg text-center mb-6 text-[#1E3A8A]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
@@ -130,22 +130,22 @@ const ProSolutions = () => {
         </motion.p>
 
         {/* ✅ List */}
-        <div className="space-y-6">
+        <div className="space-y-6 sm:space-y-8">
           {proQuestions.map((item, index) => (
             <motion.div
               key={index}
-              className="p-5 border rounded-lg shadow-md bg-white border-blue-200"
+              className="p-4 sm:p-5 border rounded-lg shadow-md bg-white border-blue-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05, duration: 0.6 }}
             >
-              <h3 className="text-xl font-semibold text-[#1E3A8A]">
+              <h3 className="text-base sm:text-xl font-semibold text-[#1E3A8A]">
                 Q{index + 1}: {item.question}
               </h3>
               <p className="mt-2">
                 <strong className="text-[#1E3A8A]">✅ Answer:</strong> {item.answer}
               </p>
-              <p className="mt-1 text-[#475569]">
+              <p className="mt-1 text-sm sm:text-base text-[#475569]">
                 <strong>🔍 Reason:</strong> {item.reason}
               </p>
             </motion.div>

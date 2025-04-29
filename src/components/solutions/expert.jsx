@@ -106,10 +106,10 @@ const expertQuestions = [
 
 const ExpertSolutions = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 text-[#1E3A8A] flex justify-center items-center p-8">
-      <div className="max-w-5xl w-full p-6 bg-white shadow-md rounded-xl border border-blue-200">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 text-[#1E3A8A] flex justify-center items-center p-6 sm:p-8">
+      <div className="max-w-5xl w-full p-6 sm:p-8 bg-white shadow-md rounded-xl border border-blue-200">
         <motion.h2
-          className="text-3xl font-bold text-center mb-6"
+          className="text-2xl sm:text-3xl font-bold text-center mb-6 text-[#1E3A8A]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -118,7 +118,7 @@ const ExpertSolutions = () => {
         </motion.h2>
 
         <motion.p
-          className="text-lg text-center mb-4"
+          className="text-base sm:text-lg text-center mb-6 text-[#1E3A8A]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
@@ -126,19 +126,19 @@ const ExpertSolutions = () => {
           20 expert-level situational judgment questions with ideal solutions and reasoning for IT placement.
         </motion.p>
 
-        <div className="space-y-6">
+        <div className="space-y-6 sm:space-y-8">
           {expertQuestions.map((q, index) => (
             <motion.div
               key={index}
-              className="p-5 border rounded-lg shadow-sm bg-white border-blue-200"
+              className="p-4 sm:p-5 border rounded-lg shadow-sm bg-white border-blue-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.04 }}
             >
-              <h3 className="text-lg font-semibold">
+              <h3 className="text-base sm:text-lg font-semibold text-[#1E3A8A]">
                 Q{index + 1}: {q.question}
               </h3>
-              <p className="mt-2">
+              <p className="mt-2 text-[#1E3A8A]">
                 <strong>Best Response:</strong> {q.answer}
               </p>
               <p className="mt-1 text-sm italic text-gray-600">

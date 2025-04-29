@@ -362,11 +362,15 @@ const Quiz = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 flex justify-center items-center px-4 py-10 transition-all duration-500">
-      <div className="bg-white border border-blue-200 rounded-2xl shadow-xl w-full max-w-3xl p-8 transition-all hover:shadow-2xl">
+      <div className="bg-white border border-blue-200 rounded-2xl shadow-xl w-full max-w-3xl p-6 sm:p-8 transition-all hover:shadow-2xl">
         {!quizStarted ? (
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-[#1E3A8A] mb-4">Welcome to the {level.charAt(0).toUpperCase() + level.slice(1)} Quiz</h1>
-            <p className="text-lg text-[#1E3A8A] mb-6">Challenge yourself with shuffled questions and test your decision-making skills!</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#1E3A8A] mb-4">
+              Welcome to the {level.charAt(0).toUpperCase() + level.slice(1)} Quiz
+            </h1>
+            <p className="text-base sm:text-lg text-[#1E3A8A] mb-6">
+              Challenge yourself with shuffled questions and test your decision-making skills!
+            </p>
             <button
               onClick={startQuiz}
               className="bg-blue-200 hover:bg-blue-300 text-[#1E3A8A] hover:text-white font-semibold py-2 px-6 rounded-full transition duration-300"
@@ -376,8 +380,12 @@ const Quiz = () => {
           </div>
         ) : showScore ? (
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-[#1E3A8A] mb-4">Quiz Completed!</h1>
-            <p className="text-lg text-[#1E3A8A] mb-4">Your Score: {score} / {questions.length}</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#1E3A8A] mb-4">
+              Quiz Completed!
+            </h1>
+            <p className="text-lg text-[#1E3A8A] mb-4">
+              Your Score: {score} / {questions.length}
+            </p>
             <button
               onClick={startQuiz}
               className="bg-pink-200 hover:bg-pink-300 text-[#1E3A8A] hover:text-white font-semibold py-2 px-6 rounded-full transition duration-300"
@@ -387,8 +395,10 @@ const Quiz = () => {
           </div>
         ) : (
           <>
-            <h2 className="text-xl font-semibold text-[#1E3A8A] mb-6">{questions[currentQuestionIndex].question}</h2>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 md:grid-cols-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#1E3A8A] mb-6">
+              {questions[currentQuestionIndex].question}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {questions[currentQuestionIndex].options.map((option, index) => (
                 <button
                   key={index}

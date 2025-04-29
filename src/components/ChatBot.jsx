@@ -33,7 +33,7 @@ const ChatBot = () => {
     <div className="fixed bottom-6 right-6 z-50">
       {/* Chat window */}
       {isOpen && (
-        <div className="w-80 h-96 mb-4 bg-white border border-blue-300 rounded-xl shadow-xl flex flex-col animate-fade-in">
+        <div className="w-full max-w-xs sm:w-80 h-96 mb-4 bg-white border border-blue-300 rounded-xl shadow-xl flex flex-col animate-fade-in">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded-t-xl font-bold">
             REAL-MIND Assistant 🤖
@@ -85,7 +85,7 @@ const ChatBot = () => {
         <img
           src={robot}
           alt="ChatBot"
-          className="w-30 h-40 rounded-full shadow-xl border-2 border-blue-300"
+          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full shadow-xl border-2 border-blue-300"
         />
       </button>
     </div>

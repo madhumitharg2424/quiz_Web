@@ -127,10 +127,10 @@ const beginnerSolutions = [
 
 const BeginnerSolutions = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 text-[#1E3A8A] flex justify-center items-center p-8">
-      <div className="max-w-5xl w-full p-6 bg-white shadow-xl rounded-lg border border-blue-200">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 text-[#1E3A8A] flex justify-center items-center p-6 sm:p-8">
+      <div className="max-w-5xl w-full p-6 sm:p-8 bg-white shadow-xl rounded-lg border border-blue-200">
         <motion.h2
-          className="text-3xl font-bold text-center mb-6 text-[#1E3A8A]"
+          className="text-2xl sm:text-3xl font-bold text-center mb-6 text-[#1E3A8A]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -139,7 +139,7 @@ const BeginnerSolutions = () => {
         </motion.h2>
 
         <motion.p
-          className="text-lg text-center mb-6 text-[#1E3A8A]"
+          className="text-base sm:text-lg text-center mb-6 text-[#1E3A8A]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
@@ -147,16 +147,16 @@ const BeginnerSolutions = () => {
           Learn the best practices for workplace situations and boost your decision-making skills.
         </motion.p>
 
-        <div className="space-y-6">
+        <div className="space-y-6 sm:space-y-8">
           {beginnerSolutions.map((item, index) => (
             <motion.div
               key={index}
-              className="p-5 border rounded-lg shadow-md bg-white border-blue-200"
+              className="p-4 sm:p-5 border rounded-lg shadow-md bg-white border-blue-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05, duration: 0.6 }}
             >
-              <h3 className="text-xl font-semibold text-[#1E3A8A]">
+              <h3 className="text-lg sm:text-xl font-semibold text-[#1E3A8A]">
                 Q{index + 1}: {item.question}
               </h3>
               <p className="mt-2 text-[#1E3A8A]">
