@@ -1,16 +1,13 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
+import { logout } from "../firebase";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // 🧹 Clear local session if used
-    localStorage.removeItem("user"); // Optional, if you stored user data
-    sessionStorage.clear(); // Or clear session storage
-
-    // 🔁 Navigate to login page
+  const handleLogout = async () => {
+    await logout();
     navigate("/login");
   };
 
