@@ -1,9 +1,14 @@
 import React from "react";
-import { signInWithGoogle } from "../firebase";
 import { motion } from "framer-motion";
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
+  const handleMockLogin = () => {
+    alert("Login functionality is disabled in this version.");
+    // Optionally navigate to dashboard
+    // window.location.href = "/dashboard";
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center h-screen bg-gradient-to-br from-[#0F2027] via-[#203A43] to-[#2C5364] overflow-hidden">
       {/* 💧 Glowy Animated Splash Blobs */}
@@ -43,15 +48,15 @@ const Login = () => {
           Quizzes. Streaks. Real-time decisions. Just one click away.
         </p>
 
-        {/* 🔘 Google Sign-In Button */}
+        {/* 🔘 Mock Sign-In Button */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={signInWithGoogle}
+          onClick={handleMockLogin}
           className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg font-semibold hover:bg-blue-700 transition duration-300"
         >
           <FaGoogle className="mr-3" />
-          Sign in with Google
+          Continue
         </motion.button>
       </motion.div>
     </div>

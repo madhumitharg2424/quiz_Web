@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase"; // Firebase auth
+
+// Components
 import Login from "./components/login";
 import Dashboard from "./components/dashboard";
 import Profile from "./components/profile";
@@ -10,8 +10,6 @@ import AboutUs from "./components/AboutUs";
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
 import Quiz from "./components/Quiz";
-
-// ChatBot
 import ChatBot from "./components/ChatBot";
 
 // Solutions
@@ -20,58 +18,38 @@ import ProSolutions from "./components/solutions/pro";
 import ExpertSolutions from "./components/solutions/expert";
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Firebase auth check
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen text-xl font-bold">
-        Loading...
-      </div>
-    );
-  }
-
   return (
     <Router>
       <div className="min-h-screen bg-[#fdfdfd] flex">
-        {/* Sidebar */}
-        {user && <Sidebar />}
+        {/* Always show Sidebar */}
+        <Sidebar />
 
         <div className="flex-grow flex flex-col">
-          {/* Navbar */}
-          {user && <Navbar />}
+          {/* Always show Navbar */}
+          <Navbar />
 
           {/* Content */}
-          <div className={`p-4 ${user ? "mt-16 ml-72" : "mt-0 ml-0"}`}>
+          <div className="p-4 mt-16 ml-72">
             <Routes>
-              <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
-              <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
-              <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
-              <Route path="/streak" element={user ? <Streak /> : <Navigate to="/login" />} />
-              <Route path="/about-us" element={user ? <AboutUs /> : <Navigate to="/login" />} />
-              <Route path="/quiz/:level" element={user ? <Quiz /> : <Navigate to="/login" />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/streak" element={<Streak />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/quiz/:level" element={<Quiz />} />
 
               {/* Solutions */}
-              <Route path="/solutions/beginner" element={user ? <BeginnerSolutions /> : <Navigate to="/login" />} />
-              <Route path="/solutions/pro" element={user ? <ProSolutions /> : <Navigate to="/login" />} />
-              <Route path="/solutions/expert" element={user ? <ExpertSolutions /> : <Navigate to="/login" />} />
+              <Route path="/solutions/beginner" element={<BeginnerSolutions />} />
+              <Route path="/solutions/pro" element={<ProSolutions />} />
+              <Route path="/solutions/expert" element={<ExpertSolutions />} />
 
-              <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
+              <Route path="*" element={<Navigate to="/dashboard" />} />
             </Routes>
           </div>
         </div>
 
-        {/* ✅ ChatBot appears only for logged-in users */}
-        {user && <ChatBot />}
+        {/* Always show ChatBot */}
+        <ChatBot />
       </div>
     </Router>
   );
