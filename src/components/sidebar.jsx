@@ -15,7 +15,7 @@ const Sidebar = () => {
   const menuItems = (
     <>
       <h2 className="text-2xl font-bold mb-6">Quiz Categories</h2>
-      <ul className="space-y-6 text-xl font-semibold">
+      <ul className="space-y-6 text-lg font-medium">
         <li>
           <Link to="/quiz/beginner" className="flex items-center space-x-2 hover:text-blue-600">
             <FaLeaf className="text-green-600" />
@@ -37,7 +37,7 @@ const Sidebar = () => {
       </ul>
 
       <h2 className="text-2xl font-bold mt-10 mb-4">Solutions</h2>
-      <ul className="space-y-6 text-xl font-semibold">
+      <ul className="space-y-6 text-lg font-medium">
         <li>
           <Link to="/solutions/beginner" className="flex items-center space-x-2 hover:text-blue-600">
             <FaBookOpen className="text-purple-500" />
@@ -62,35 +62,20 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Toggle Button (Visible only on mobile) */}
+      {/* Mobile Toggle Button */}
       <button
-        className="md:hidden fixed top-4 left-4 z-50 text-blue-800 text-3xl"
-        onClick={() => setIsOpen(true)}
+        className="md:hidden fixed top-4 left-4 z-30 text-blue-800 text-2xl"
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <FaBars />
+        {isOpen ? <FaTimes /> : <FaBars />}
       </button>
-
-      {/* Overlay on mobile */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-full w-72 bg-gradient-to-b from-blue-100 via-white to-blue-50 text-[#1E3A8A] p-6 shadow-lg border-r border-blue-200 transform transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} 
-          md:translate-x-0 md:static md:h-[calc(100vh-64px)] md:block`}
+        className={`fixed top-0 left-0 z-20 h-full w-72 bg-gradient-to-b from-blue-100 via-white to-blue-50 text-[#1E3A8A] p-6 shadow-md border-r border-blue-200 transform transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          md:translate-x-0 md:static md:h-screen`}
       >
-        {/* Close button for mobile */}
-        <div className="md:hidden flex justify-end mb-4">
-          <button onClick={() => setIsOpen(false)} className="text-2xl text-blue-800">
-            <FaTimes />
-          </button>
-        </div>
-
         {menuItems}
       </aside>
     </>
