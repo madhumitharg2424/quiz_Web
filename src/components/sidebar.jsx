@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaLeaf, FaStar, FaTrophy, FaBookOpen, FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaLeaf,
+  FaStar,
+  FaTrophy,
+  FaBookOpen,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,20 +62,35 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Toggle Button for Mobile */}
+      {/* Toggle Button (Visible only on mobile) */}
       <button
-        className="md:hidden fixed top-4 left-4 z-30 text-blue-800 text-2xl"
-        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden fixed top-4 left-4 z-50 text-blue-800 text-3xl"
+        onClick={() => setIsOpen(true)}
       >
-        {isOpen ? <FaTimes /> : <FaBars />}
+        <FaBars />
       </button>
+
+      {/* Overlay on mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-20 h-full w-72 bg-gradient-to-b from-blue-100 via-white to-blue-50 text-[#1E3A8A] p-6 shadow-lg border-r border-blue-200 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:top-16 md:h-[calc(100vh-64px)] md:w-80 md:block`}
+        className={`fixed top-0 left-0 z-50 h-full w-72 bg-gradient-to-b from-blue-100 via-white to-blue-50 text-[#1E3A8A] p-6 shadow-lg border-r border-blue-200 transform transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+          md:translate-x-0 md:static md:h-[calc(100vh-64px)] md:block`}
       >
+        {/* Close button for mobile */}
+        <div className="md:hidden flex justify-end mb-4">
+          <button onClick={() => setIsOpen(false)} className="text-2xl text-blue-800">
+            <FaTimes />
+          </button>
+        </div>
+
         {menuItems}
       </aside>
     </>
