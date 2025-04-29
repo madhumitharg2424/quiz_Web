@@ -65,9 +65,9 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-20 h-full w-72 bg-gradient-to-b from-blue-100 via-white to-blue-50 text-[#1E3A8A] p-6 shadow-lg border-r border-blue-200 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 z-20 h-full w-72 bg-gradient-to-b from-blue-100 via-white to-blue-50 text-[#1E3A8A] p-6 shadow-lg border-r border-blue-200 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:top-16 md:h-[calc(100vh-64px)]`}
+        } md:translate-x-0 md:top-16 md:h-[calc(100vh-64px)] md:w-80 md:block`}
       >
         {menuItems}
       </aside>
